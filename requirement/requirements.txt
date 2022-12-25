@@ -1,0 +1,14 @@
+transformers
+sentencepiece
+protobuf==3.20.*
+python-snappy
+pandas
+nvitop
+click
+datasets
+wandb
+scipy
+absl-py
+torch
+torchvision
+torchaudio
