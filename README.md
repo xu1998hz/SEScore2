@@ -53,6 +53,10 @@ scripts/run_laser_emb_gen.sh -d raw_text_file -l zh_en -t wiki # t is the domain
 # build the index table after obtaining embeddings of the texts
 scripts/run_sen_index_table.sh -q data_file1 -f data_file1 -s data_file2 -t data_file3 -o data_file4 -u part1 -l zh_en # We build our index table 
 
+# compute the margin score 
+python3 syn_data/margin_compute.py -id_addr ids_query.txt -dist_addr dists_query.txt -sum_addr_1 sum_query1.txt -sum_addr_2 sum_query2.txt \
+-sum_addr_3 sum_query3.txt -sum_addr_4 sum_query4.txt
+
 # extract 128 neighbors from the index table (Hard negative candidates)
 python3 syn_data/extract_neg.py -dists_addr dists_query_file -ids_addr ids_query_file -query_addr query_raw_data -val_addr value_raw_data 
 
