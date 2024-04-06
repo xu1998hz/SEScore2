@@ -9,14 +9,15 @@ from transformers import (
     AutoModel,
     DataCollatorWithPadding,
     get_linear_schedule_with_warmup,
-    AdamW
+    AdamW,
+    PreTrainedModel
 )
 import math
 from torch.nn.parallel import DistributedDataParallel as DDP
 import torch.distributed as dist
 import os
 import random
-from mt_metrics_eval import data
+# from mt_metrics_eval import data
 import time
 from train.feedforward import FeedForward
 
@@ -74,7 +75,7 @@ def pool(model, encoded_input, attention_mask, emb_type):
     pool_embed = sent_emb(outputs.hidden_states, emb_type, attention_mask)
     return pool_embed
 
-class Regression_XLM_Roberta(nn.Module):
+class Regression_XLM_Roberta(PreTrainedModel):
     def __init__(self, model_addr):
         super().__init__()
         self.xlm = AutoModel.from_pretrained(model_addr)
@@ -86,6 +87,7 @@ class Regression_XLM_Roberta(nn.Module):
             dropout=exp_config.drop_out,
             final_activation=exp_config.final_activation,
         )
+        self.config=self.xlm.config
 
     def freeze_xlm(self) -> None:
         """Frezees the all layers in XLM weights."""
