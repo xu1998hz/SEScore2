@@ -7,9 +7,7 @@
 <h3>Install all dependencies:</h3>
 
 ````
-```
 pip install -r requirement/requirements.txt
-```
 ````
 
 <h3>Instructions to score sentences using SEScore2:</h3>
