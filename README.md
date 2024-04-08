@@ -9,21 +9,14 @@
 ````
 ```
 pip install -r requirement/requirements.txt
-
-# To evaluate WMT shared metric task using official script
-git clone https://github.com/google-research/mt-metrics-eval.git
-cd mt-metrics-eval
-pip install .
-
-# Download evaluation data for WMT20, 21 and 22
-alias mtme='python3 -m mt_metrics_eval.mtme'
-mtme --download  # Puts ~1G of data into $HOME/.mt-metrics-eval.
 ```
 ````
 
 <h3>Instructions to score sentences using SEScore2:</h3>
 
-Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
+Weights can be found in huggingface: xu1998hz/sescore2_en_pretrained. It will be downloaded automatically
+
+They ca also be found in Google drive. Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
 We support five languages: English, German, Spanish, Chinese and Japanese.
 
 To run SEScore2 for text generation evaluation:
