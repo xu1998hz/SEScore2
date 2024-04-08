@@ -22,7 +22,7 @@ To run SEScore2 for text generation evaluation:
 ````
 from SEScore2 import *
 
-scorer = SEScore2('en') # load in metric with specified language, en (English), de (German), ja ('Japanese')
+scorer = SEScore2('en', mode="pretrained") # load in metric with specified language, en (English), de (German), ja ('Japanese'),  es ('Spanish'), zh ('Chinese'). We have SEScore2 that is only pretrained on synthetic data which only supports five languages (mode: pretrained) and further finetuned on all available human rating data (supports up to 100 languages).
 refs = ["SEScore is a simple but effective next generation text generation evaluation metric", "SEScore it really works"]
 outs = ["SEScore is a simple effective text evaluation metric for next generation", "SEScore is not working"]
 scores_ls = scorer.score(refs, outs, 1)
