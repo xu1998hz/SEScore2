@@ -10,7 +10,6 @@ from transformers import (
     DataCollatorWithPadding,
     get_linear_schedule_with_warmup,
     AdamW,
-    PreTrainedModel
 )
 import math
 from torch.nn.parallel import DistributedDataParallel as DDP
@@ -75,8 +74,8 @@ def pool(model, encoded_input, attention_mask, emb_type):
     pool_embed = sent_emb(outputs.hidden_states, emb_type, attention_mask)
     return pool_embed
 
-class Regression_XLM_Roberta(PreTrainedModel):
-    def __init__(self, model_addr):
+class Regression_XLM_Roberta(nn.Module):
+    def __init__(self, model_addr): 
         super().__init__()
         self.xlm = AutoModel.from_pretrained(model_addr)
         # initialize the feedforward to process the festures
@@ -87,7 +86,6 @@ class Regression_XLM_Roberta(PreTrainedModel):
             dropout=exp_config.drop_out,
             final_activation=exp_config.final_activation,
         )
-        self.config=self.xlm.config
 
     def freeze_xlm(self) -> None:
         """Frezees the all layers in XLM weights."""
