@@ -14,7 +14,7 @@ pip install -r requirement/requirements.txt
 
 <h3>Instructions to score sentences using SEScore2:</h3>
 
-Weights can be found in huggingface: xu1998hz/sescore2_en_pretrained. It will be downloaded automatically
+Pretrained weights can be found in huggingface: xu1998hz/sescore2_en_pretrained, xu1998hz/sescore2_de_pretrained, xu1998hz/sescore2_ja_pretrained, xu1998hz/sescore2_zh_pretrained, xu1998hz/sescore2_es_pretrained. It will be downloaded automatically
 
 They ca also be found in Google drive. Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
 We support five languages: English, German, Spanish, Chinese and Japanese.
