@@ -1,5 +1,6 @@
-from train.regression import *
+from util.regression_xlm_roberta import *
 from huggingface_hub import hf_hub_download
+from transformers import AutoTokenizer
 
 class SEScore2:
     
