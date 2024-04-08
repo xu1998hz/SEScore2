@@ -3,17 +3,28 @@ from huggingface_hub import hf_hub_download
 
 class SEScore2:
     
-    def __init__(self, lang, cur_addr):
+    def __init__(self, lang):
         # load in the weights of SEScore2
         exp_config.device_id = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
         if lang == 'en':
             # load in xlm version
+            cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_en_pretrained", filename="sescore2_en.ckpt")
             self.tokenizer = AutoTokenizer.from_pretrained(f"xlm-roberta-large")
         elif lang == 'de':
             # load in rembert version
             self.tokenizer = AutoTokenizer.from_pretrained(f"google/rembert")
+            cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_de_pretrained", filename="sescore2_de.ckpt")
         elif lang == 'ja':
             # load in rembert version
+            cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_ja_pretrained", filename="sescore2_ja.ckpt")
+            self.tokenizer = AutoTokenizer.from_pretrained(f"google/rembert")
+        elif lang == 'es':
+            # load in rembert version
+            cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_es_pretrained", filename="sescore2_es.ckpt")
+            self.tokenizer = AutoTokenizer.from_pretrained(f"google/rembert")
+        elif lang == 'zh':
+            # load in rembert version
+            cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_zh_pretrained", filename="sescore2_zh.ckpt")
             self.tokenizer = AutoTokenizer.from_pretrained(f"google/rembert")
         else:
             print("We currently only support three languages: en, de, ja!")
@@ -37,8 +48,7 @@ def main():
     refs = ["SEScore is a simple but effective next generation text generation evaluation metric", "SEScore it really works"]
     outs = ["SEScore is a simple effective text evaluation metric for next generation", "SEScore is not working"]
 
-    file_addr = hf_hub_download(repo_id="xu1998hz/sescore2_en_pretrained", filename="sescore2_en.ckpt")
-    scorer = SEScore2(lang='en', cur_addr=file_addr)
+    scorer = SEScore2(lang='en')
     scores_ls = scorer.score(refs, outs, 1)
     print(scores_ls)
 
