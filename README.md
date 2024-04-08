@@ -33,7 +33,6 @@ scores_ls = scorer.score(refs, outs, 1)
 To reproduce our retrieval augmented data synthesis process (This code needs to be updated! Email me if you need immediate results):
 
 ````
-```
 # first generate laser emebddings for raw texts
 scripts/run_laser_emb_gen.sh -d raw_text_file -l zh_en -t wiki # t is the domain of data, we used WMT and wiki in the paper
 
@@ -59,37 +58,28 @@ CUDA_VISIBLE_DEVICES=0 python3 syn_data/xlm-align-measure.py -src_addr mt_src_fi
 
 # construct triples (raw pivot sentence, synthetic text, pseudo score)
 run_severe_final_data.sh
-```
 ````
 
 To reproduce our baseline and SEScore2 results in machine translation(MT):
 
 ````
-```
 CUDA_VISIBLE_DEVICES=0 python3 inference/inference_regression.py -wmt wmt21.news -lang zh-en -model_addr -model_base xlm-roberta-large -model_addr sescore2_en.ckpt
-```
 ````
 
 To reproduce our baseline and SEScore2 results in Speech Translation (S2T):
 
 ````
-```
 CUDA_VISIBLE_DEVICES=0 python3 inference/test_all_metrics.py -metric_name sescore2  -benchmark_name st-en-ja -ckpt sescore2_ja.ckpt -model_base google/rembert -lang 'ja'
-```
 ````
 
 To reproduce our baseline and SEScore2 results in WebNLG (D2T):
 
 ````
-```
 CUDA_VISIBLE_DEVICES=0 python3 inference/test_all_metrics.py -metric_name sescore2  -benchmark_name webnlg2020 -ckpt sescore2_en.ckpt -model_base xlm-roberta-large -lang 'en'
-```
 ````
 
 To reproduce our baseline and SEScore2 results in Dialogue Generation (This code needs to be updated! Email me if you need immediate results):
 
 ````
-```
 CUDA_VISIBLE_DEVICES=0 python3 inference/test_all_metrics.py -metric_name sescore2  -benchmark_name dialogue -ckpt sescore2_en.ckpt -model_base xlm-roberta-large -lang 'en'
-```
 ````
