@@ -14,26 +14,20 @@ pip install -r requirement/requirements.txt
 
 <h3>Instructions to score sentences using SEScore2:</h3>
 
-Pretrained weights can be found in huggingface: xu1998hz/sescore2_en_pretrained, xu1998hz/sescore2_de_pretrained, xu1998hz/sescore2_ja_pretrained, xu1998hz/sescore2_zh_pretrained, xu1998hz/sescore2_es_pretrained. It will be downloaded automatically
+SEScore2 pretrained weights can be found in huggingface: xu1998hz/sescore2_en_pretrained, xu1998hz/sescore2_de_pretrained, xu1998hz/sescore2_ja_pretrained, xu1998hz/sescore2_zh_pretrained, xu1998hz/sescore2_es_pretrained. It will be downloaded automatically
 
 They ca also be found in Google drive. Download weights and data from Google Drive (https://drive.google.com/drive/folders/1I9oji2_rwvifuUSqO-59Fi_vIok_Wvq8?usp=sharing)
-We support five languages: English, German, Spanish, Chinese and Japanese.
+Pretrained weights support five languages: English, German, Spanish, Chinese and Japanese.
 
 To run SEScore2 for text generation evaluation:
 
 ````
-```
-from SEScore2 import SEScore2
-from train.regression import *
+from SEScore2 import *
 
 scorer = SEScore2('en') # load in metric with specified language, en (English), de (German), ja ('Japanese')
-
 refs = ["SEScore is a simple but effective next generation text generation evaluation metric", "SEScore it really works"]
-
 outs = ["SEScore is a simple effective text evaluation metric for next generation", "SEScore is not working"]
-
 scores_ls = scorer.score(refs, outs, 1)
-```
 ````
 
 To reproduce our retrieval augmented data synthesis process (This code needs to be updated! Email me if you need immediate results):
