@@ -54,6 +54,17 @@ class SEScore2:
                     ref_quantiles = np.array([stats.percentileofscore(self.mqm_loaded, v) for v in unique_ref_values])
                     # Create an interpolation function for the ref_dataset quantiles
                     self.interpolation_function = interp1d(ref_quantiles, unique_ref_values, bounds_error=False, fill_value="extrapolate")
+            elif lang == 'qmi':
+                # load in xlm version
+                cur_addr = hf_hub_download(repo_id="xu1998hz/sescore2_en_pretrained", filename="sescore2_qmi.ckpt")
+                self.tokenizer = AutoTokenizer.from_pretrained(f"xlm-roberta-large")
+                self.calibration = calibration
+                if self.calibration:
+                    self.model_loaded, self.mqm_loaded = load_from_json('calibration/sescore2_qmi.json')
+                    unique_ref_values = np.unique(self.mqm_loaded)
+                    ref_quantiles = np.array([stats.percentileofscore(self.mqm_loaded, v) for v in unique_ref_values])
+                    # Create an interpolation function for the ref_dataset quantiles
+                    self.interpolation_function = interp1d(ref_quantiles, unique_ref_values, bounds_error=False, fill_value="extrapolate")
             elif lang == 'de':
                 # load in rembert version
                 self.tokenizer = AutoTokenizer.from_pretrained(f"google/rembert")
