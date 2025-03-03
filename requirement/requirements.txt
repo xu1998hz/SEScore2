@@ -12,3 +12,5 @@ absl-py
 torch
 torchvision
 torchaudio
+nltk
+huggingface-hub
