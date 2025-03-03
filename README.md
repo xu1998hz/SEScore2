@@ -69,6 +69,28 @@ Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Basque, B
 **Note:** * indicates African languages.
 
 ````
+@inproceedings{xu-etal-2022-errors,
+    title = "Not All Errors are Equal: Learning Text Generation Metrics using Stratified Error Synthesis",
+    author = "Xu, Wenda  and
+      Tuan, Yi-Lin  and
+      Lu, Yujie  and
+      Saxon, Michael  and
+      Li, Lei  and
+      Wang, William Yang",
+    editor = "Goldberg, Yoav  and
+      Kozareva, Zornitsa  and
+      Zhang, Yue",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2022",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-emnlp.489/",
+    doi = "10.18653/v1/2022.findings-emnlp.489",
+    pages = "6559--6574",
+    abstract = "Is it possible to build a general and automatic natural language generation (NLG) evaluation metric? Existing learned metrics either perform unsatisfactorily or are restricted to tasks where large human rating data is already available. We introduce SESCORE, a model-based metric that is highly correlated with human judgements without requiring human annotation, by utilizing a novel, iterative error synthesis and severity scoring pipeline. This pipeline applies a series of plausible errors to raw text and assigns severity labels by simulating human judgements with entailment. We evaluate SESCORE against existing metrics by comparing how their scores correlate with human ratings. SESCORE outperforms all prior unsupervised metrics on multiple diverse NLG tasks including machine translation, image captioning, and WebNLG text generation. For WMT 20/21En-De and Zh-En, SESCORE improve the average Kendall correlation with human judgement from 0.154 to 0.195. SESCORE even achieves comparable performance to the best supervised metric COMET, despite receiving no human annotated training data."
+}
+
 @inproceedings{xu-etal-2023-sescore2,
     title = "{SESCORE}2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes",
     author = "Xu, Wenda  and
