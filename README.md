@@ -68,6 +68,29 @@ Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Basque, B
 
 **Note:** * indicates African languages.
 
+````
+@inproceedings{xu-etal-2023-sescore2,
+    title = "{SESCORE}2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes",
+    author = "Xu, Wenda  and
+      Qian, Xian  and
+      Wang, Mingxuan  and
+      Li, Lei  and
+      Wang, William Yang",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.283/",
+    doi = "10.18653/v1/2023.acl-long.283",
+    pages = "5166--5183",
+    abstract = "Is it possible to train a general metric for evaluating text generation quality without human-annotated ratings? Existing learned metrics either perform unsatisfactory across text generation tasks or require human ratings for training on specific tasks. In this paper, we propose SEScore2, a self-supervised approach for training a model-based metric for text generation evaluation. The key concept is to synthesize realistic model mistakes by perturbing sentences retrieved from a corpus. We evaluate SEScore2 and previous methods on four text generation tasks across three languages. SEScore2 outperforms all prior unsupervised metrics on four text generation evaluation benchmarks, with an average Kendall improvement of 0.158. Surprisingly, SEScore2 even outperforms the supervised BLEURT and COMET on multiple text generation tasks."
+}
+````
+
 
 <h3>Old Instructions to score sentences using SEScore2:</h3>
 
