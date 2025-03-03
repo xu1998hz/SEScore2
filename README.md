@@ -1,4 +1,4 @@
-<h1>SEScore2: Retrieval Augmented Pretraining for Text Generation Evaluation</h1>
+<h1>SESCORE2: Learning Text Generation Evaluation via Synthesizing Realistic Mistakes</h1>
 
 <h3>Paper: https://arxiv.org/abs/2212.09305</h3>
 
